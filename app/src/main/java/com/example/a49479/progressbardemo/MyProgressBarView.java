@@ -25,7 +25,7 @@ public class MyProgressBarView extends View {
     private int mProgressHeight = 160;
 
     //进度百分比
-    private int percentage = 0;
+    private float percentage = 0;
     private int widthByPercent = marginLeftRight;
 
     //屏幕宽高
@@ -93,16 +93,16 @@ public class MyProgressBarView extends View {
         this.mProgressHeight = mProgressHeight;
     }
 
-    public int getPercentage() {
+    public float getPercentage() {
         return percentage;
     }
 
 
     //设置百分比
-    public void setPercentage(int percentage) {
+    public void setPercentage(float percentage) {
             if (percentage <= 100 && percentage >= 0) {
                 this.percentage = percentage;
-                widthByPercent = (wScreen - marginLeftRight * 2) * percentage / 100 + marginLeftRight;
+                widthByPercent = (int)((wScreen - marginLeftRight * 2) * percentage / 100.0) + marginLeftRight;
                 invalidate();
             }
     }
